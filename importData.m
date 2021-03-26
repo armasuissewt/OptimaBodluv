@@ -21,6 +21,14 @@ function data = importData(sheetName, option)
 	if option ~=""
 		data = data(string(data.Scenario) == option, :);
 	end
+	
+	for iColumn = 1:size(data, 2)
+		if iscategorical(data{1, iColumn})
+			varName = data.Properties.VariableNames{iColumn};
+			data.(varName) = replace(string(data.(varName)), "_", "-");
+		end
+	end
+	
 % 	data{:, 3} = removecats(data{:, 3});
 % 	data.BlueEffector = removecats(data.BlueEffector);
 % 	data = data(contains(string(data.Assessment), "nighttime"), :);
