@@ -1,7 +1,7 @@
 function saveResults(dataDir)
 	%% Function for saving all figures and base workspace to date-specific directory
 	path = fullfile(dataDir, "Results"); %, datestr(now, "yyyymmDDHHMMSS")
-	mkdir(path)
+% 	mkdir(path)
 	
 	figHandles = get(groot, 'Children');
 	

@@ -18,7 +18,7 @@ function data = importData(sheetName, option)
 	data = readtable(workbookFile, opts);
 	
 	data = data(~contains(string(data.Assessment), "bat"), :);
-	if option ~=""
+	if option ~="All options"
 		data = data(string(data.Scenario) == option, :);
 	end
 	
