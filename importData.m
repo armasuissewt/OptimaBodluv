@@ -1,11 +1,15 @@
-function data = importData(sheetName, option)
+function data = importData(sheetName, option, varargin)
 	
 	opts = spreadsheetImportOptions("NumVariables", 6);
 	opts.Sheet = sheetName;
 	opts.DataRange = "A2";
 	opts.VariableNamesRange = "A1:F1";
 
-	if sheetName ~= "blue_shot_costs"
+	if nargin == 3
+		workbookFile = fullfile("data", "system_kills_31_03_2021.xlsx");
+		opts.VariableNames = ["Assessment"; "Scenario"; "RedSystem"; "BlueSystem"; "ShooterLocation"; "Absolute"; "DeployedBlue"];
+		opts.VariableTypes = ["categorical", "categorical", "categorical", "categorical", "categorical", "double", "double"];
+	elseif sheetName ~= "blue_shot_costs"
 		workbookFile = fullfile("data", "Detailed losses and kills 23032021.xlsx");
 		opts.VariableTypes = ["categorical", "categorical", "categorical", "categorical", "double", "double"];
 	else
