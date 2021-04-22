@@ -6,6 +6,12 @@ function data = importData(sheetName, option, varargin)
 	opts.VariableNamesRange = "A1:F1";
 
 	if nargin == 3
+		workbookFile = varargin{1};
+	end
+	if sheetName == "red_shot_costs"
+		opts.VariableNames = ["Assessment"; "Scenario"; "RedSystem"; "RedEffector"; "BlueTarget"; "Outcome"; "ShooterLocation"; "NumberOfShots"; "TotalBlueLoss"; "TotalRedCost"];
+		opts.VariableTypes = ["categorical", "categorical", "categorical", "categorical", "categorical", "categorical", "categorical", "double", "double", "double"];
+	elseif sheetname == "blue_killed_by_red_system"
 		workbookFile = fullfile("data", "system_kills_31_03_2021.xlsx");
 		opts.VariableNames = ["Assessment"; "Scenario"; "RedSystem"; "BlueSystem"; "ShooterLocation"; "Absolute"; "DeployedBlue"];
 		opts.VariableTypes = ["categorical", "categorical", "categorical", "categorical", "categorical", "double", "double"];
