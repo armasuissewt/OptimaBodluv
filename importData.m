@@ -11,13 +11,17 @@ function data = importData(sheetName, option, varargin)
 	if sheetName == "red_shot_costs"
 		opts.VariableNames = ["Assessment"; "Scenario"; "RedSystem"; "RedEffector"; "BlueTarget"; "Outcome"; "ShooterLocation"; "NumberOfShots"; "TotalBlueLoss"; "TotalRedCost"];
 		opts.VariableTypes = ["categorical", "categorical", "categorical", "categorical", "categorical", "categorical", "categorical", "double", "double", "double"];
-	elseif sheetname == "blue_killed_by_red_system"
+	elseif sheetName == "blue_killed_by_red_system"
 		workbookFile = fullfile("data", "system_kills_31_03_2021.xlsx");
 		opts.VariableNames = ["Assessment"; "Scenario"; "RedSystem"; "BlueSystem"; "ShooterLocation"; "Absolute"; "DeployedBlue"];
 		opts.VariableTypes = ["categorical", "categorical", "categorical", "categorical", "categorical", "double", "double"];
 	elseif sheetName ~= "blue_shot_costs"
-		workbookFile = fullfile("data", "Detailed losses and kills 23032021.xlsx");
-		opts.VariableTypes = ["categorical", "categorical", "categorical", "categorical", "double", "double"];
+% 		workbookFile = fullfile("data", "Detailed losses and kills 23032021.xlsx");
+% 		opts.VariableTypes = ["categorical", "categorical", "categorical", "categorical", "double", "double"];
+% 		workbookFile = fullfile("data", "system_kills_Indirect Ext GR vs Rgt Heavy BODLUV_05_07_2021.xlsx");
+		workbookFile = fullfile("data", "system_kills_Indirect Ext NO GR vs Rgt Heavy BODLUV_05_07_2021.xlsx");
+		opts.VariableNames = ["Assessment"; "Scenario"; "BlueEffector"; "RedSystem"; "TargetLocation"; "Absolute"; "InDeployedREDAIR"];
+		opts.VariableTypes = ["categorical", "categorical", "categorical", "categorical", "categorical", "double", "double"];
 	else
 		workbookFile = fullfile("data", "system_kills_25_03_2021.xlsx");
 		opts.VariableNames = ["Assessment"; "Scenario"; "BlueSystem"; "BlueEffector"; "RedTarget"; "Outcome"; "NumberOfShots"; "TotalRedLoss"; "TotalBlueCost"];
