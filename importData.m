@@ -12,7 +12,9 @@ function data = importData(sheetName, option, varargin)
 		opts.VariableNames = ["Assessment"; "Scenario"; "RedSystem"; "RedEffector"; "BlueTarget"; "Outcome"; "ShooterLocation"; "NumberOfShots"; "TotalBlueLoss"; "TotalRedCost"];
 		opts.VariableTypes = ["categorical", "categorical", "categorical", "categorical", "categorical", "categorical", "categorical", "double", "double", "double"];
 	elseif sheetName == "blue_killed_by_red_system"
-		workbookFile = fullfile("data", "system_kills_31_03_2021.xlsx");
+% 		workbookFile = fullfile("data", "system_kills_31_03_2021.xlsx");
+% 		workbookFile = fullfile("data", "indirect_ext_bodluv_09_07_2021", "system_kills_Indirect Ext GR vs Rgt Heavy BODLUV.xlsx");
+		workbookFile = fullfile("data", "indirect_ext_bodluv_09_07_2021", "system_kills_Indirect Ext NO GR vs Rgt Heavy BODLUV.xlsx");
 		opts.VariableNames = ["Assessment"; "Scenario"; "RedSystem"; "BlueSystem"; "ShooterLocation"; "Absolute"; "DeployedBlue"];
 		opts.VariableTypes = ["categorical", "categorical", "categorical", "categorical", "categorical", "double", "double"];
 	elseif sheetName ~= "blue_shot_costs"

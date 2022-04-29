@@ -10,7 +10,7 @@ function saveResults(dataDir)
 		filename = fullfile(path, figHandles(iFig).Name);
 		figHandles(iFig).WindowState = "maximized";
 % 		savefig(figHandles(iFig), filename)
-		if verLessThan('matlab', '9.8')
+		if true %verLessThan('matlab', '9.8')
 			print(figHandles(iFig), filename,'-djpeg')
 		else
 			exportgraphics(figHandles(iFig), filename+".jpg") % From R2020a
